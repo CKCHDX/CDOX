@@ -121,3 +121,5 @@ screen
 tmux 
 rsync
 timeshift
+forensics-all-gui
+gnupg, gpg-agent
