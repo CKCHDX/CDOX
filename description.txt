@@ -1,0 +1,75 @@
+cdox/
+├── CMakeLists.txt
+├── README.md
+├── src/
+│   ├── main.cpp
+│   ├── MainWindow.cpp
+│   ├── MainWindow.h
+│   ├── QuickActionPanel.cpp
+│   ├── QuickActionPanel.h
+│   ├── LogPanel.cpp
+│   ├── LogPanel.h
+│   ├── NetworkMapPanel.cpp
+│   ├── NetworkMapPanel.h
+│   ├── Utils/
+│   │   ├── ScriptRunner.cpp
+│   │   ├── ScriptRunner.h
+│   │   └── Logger.cpp
+│   │   └── Logger.h
+├── resources/
+│   ├── icons/
+│   ├── styles/
+│       └── cdox.qss
+├── assets/
+│   └── images/
+├── tests/
+│   ├── test_main.cpp
+│   ├── test_scripts.cpp
+│   └── test_networkmap.cpp
+# CDOX - Command Dashboard Overview X
+
+## Description
+
+CDOX is a Qt-based C++ cybersecurity command dashboard designed as a modular application with dockable panels for quick actions, logs, and network visualization.
+
+The project uses modern Qt Widgets and the Qt signal-slot mechanism for asynchronous UI updates. It's aimed to run on Debian with KDE/Qt stack.
+
+## Structure
+
+- `src/`: Core application source files including:
+  - `main.cpp`: Main application entry point.
+  - `MainWindow`: Main window with layout and menu.
+  - `QuickActionPanel`: UI buttons to trigger security scripts.
+  - `LogPanel`: Real-time log viewer.
+  - `NetworkMapPanel`: Network topology visualizer.
+  - `Utils/`: Helper classes for executing scripts and logging.
+
+- `resources/`: UI resources like icons and themes (cdox.qss for styles).
+
+- `assets/`: Static files like images used in the UI.
+
+- `tests/`: Unit tests using Qt Test framework.
+
+## Build Instructions
+
+### Prerequisites
+
+- Qt5 or Qt6 development libraries installed (qtbase5-dev or qtbase6-dev)
+- CMake 3.15 or newer
+- g++ or compatible C++ compiler
+
+### Building
+
+
+  
+## Development Notes
+
+- UI is implemented with QWidget-based classes for stability and control.
+- Quick actions run asynchronously using QtConcurrent or QProcess.
+- Extensive use of signals and slots for event-driven design.
+- Styling done via `cdox.qss` to match dark neon theme.
+- Planned extensibility for plugin-based actions and more visualization.
+
+---
+
+Feel free to extend modules or build custom plugins to integrate other cybersecurity tools.
