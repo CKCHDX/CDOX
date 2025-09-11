@@ -1,0 +1,58 @@
+QWidget {
+    background-color: #010a16;
+    color: #00e8ff;
+    font-family: "Roboto Mono", monospace;
+    font-size: 10pt;
+}
+
+QMainWindow {
+    background-color: #010a16;
+}
+
+QFrame#panel {
+    background-color: #002a47;
+    border: 1px solid #003d61;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #00e1ff44;
+    padding: 10px;
+    margin: 5px;
+}
+
+QLabel {
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    font-size: 15pt;
+    color: #00ffd5;
+    text-transform: uppercase;
+    border-bottom: 1px solid #00b7fdaa;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+}
+
+QPushButton.action-btn {
+    background-color: #00b7fd22;
+    border: 1px solid #00efffaa;
+    color: #00e8ff;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+QPushButton.action-btn:hover {
+    background-color: #00efff66;
+    box-shadow: 0 0 8px #00e7ffcc;
+}
+
+QTextEdit#networkMap, QTextEdit#alerts {
+    background-color: #001c2e;
+    border-radius: 6px;
+    border: 1px solid #005a8e;
+    color: #00a9c0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9pt;
+    padding: 10px;
+    margin-top: 5px;
+}
+
