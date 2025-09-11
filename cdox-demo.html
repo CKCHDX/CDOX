@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blacklist-Inspired FBI Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono&display=swap');
+  body {
+    margin: 0; background: #010a16;
+    font-family: 'Roboto Mono', monospace;
+    color: #00fefc;
+    overflow: hidden;
+  }
+  header {
+    background: #001f3f;
+    padding: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #00fefe;
+    border-bottom: 2px solid #00697d;
+  }
+  #dashboard {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: calc(100vh - 65px);
+    gap: 10px;
+    padding: 10px;
+  }
+  .panel {
+    background: #002a47;
+    border: 1px solid #003d61;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #00e1ff44;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel h2 {
+    margin: 0 0 10px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: #00ffd5;
+    text-transform: uppercase;
+    border-bottom: 1px solid #00b7fdaa;
+    padding-bottom: 4px;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  button.action-btn {
+    background: #00b7fd22;
+    border: 1px solid #00efffaa;
+    color: #00e8ff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  button.action-btn:hover {
+    background: #00efff66;
+    box-shadow: 0 0 8px #00e7ffcc;
+  }
+  .data-visual {
+    flex-grow: 1;
+    background: #001c2e;
+    border-radius: 6px;
+    color: #00a9c0;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    overflow-y: auto;
+    user-select: none;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  #network-map {
+    background: #002f4d;
+    border-radius: 6px;
+    color: #00d2ff;
+    height: 100%;
+    position: relative;
+    user-select:none;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  /* Floating effect */
+  .glow {
+    text-shadow:
+      0 0 5px #00dbff,
+      0 0 10px #00dbff,
+      0 0 20px #00dbff,
+      0 0 30px #00dbff;
+  }
+</style>
+</head>
+<body>
+
+<header class="glow">CDOX Operations Dashboard</header>
+
+<div id="dashboard">
+  <div class="panel">
+    <h2>Quick Actions</h2>
+    <div class="buttons">
+      <button class="action-btn" onclick="alert('Initiating Network Sweep...')">Network Sweep</button>
+      <button class="action-btn" onclick="alert('Launching Host IP Scan...')">Host IP Scan</button>
+      <button class="action-btn" onclick="alert('Activating Cyber Lockdown')">Cyber Lockdown</button>
+      <button class="action-btn" onclick="alert('Deploying Defensive Firewall Rules')">Deploy Firewall</button>
+      <button class="action-btn" onclick="alert('Activating Virus Scan')">Virus Scan</button>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Network Topology</h2>
+    <div id="network-map">
+      <pre>
+  [192.168.1.1]───┐
+     │            ├─[192.168.1.101] (Online)
+     │            ├─[192.168.1.102] (Online)
+  [192.168.1.254] │
+     │            └─[192.168.1.150] (Offline)
+  ... Network Graph ...
+      </pre>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Alerts & Logs</h2>
+    <div class="data-visual" id="alerts">
+      <p>14:36:01 | DETECTED unusual login from IP 198.51.100.23</p>
+      <p>14:35:55 | Virus signature matched on host 192.168.1.102</p>
+      <p>14:35:50 | Network sweep completed - no anomalies</p>
+      <p>14:35:10 | User 'agent24' elevated privileges</p>
+      <p>14:34:59 | Firewall rules updated successfully</p>
+      <p>14:34:48 | Suspicious port scanning activity flagged</p>
+      <p>...</p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
