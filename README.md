@@ -1,6 +1,6 @@
-Sentinel X — Cybersecurity Command Dashboard
+CDOX — Command Dashboard Overview X
 Overview
-Sentinel X is a highly specialized cybersecurity GUI designed for rapid decision-making and advanced cyber defense operations. Inspired by elite agency interfaces like those dramatized in The Blacklist, it combines a sleek, futuristic look with a practical, user-centric layout optimized for real-time threat management.
+Command Dashboard Overview X or short as CDOX is a highly specialized cybersecurity GUI designed for rapid decision-making and advanced cyber defense operations. It combines a visual dark sleek neon interface and look with a practical, user-centric layout optimized for real-time threat management
 
 Visual & UI Design
 Dark Mode with Neon Accents: The interface uses a dark color palette with glowing neon blues and cyans. This reduces eye strain in low-light environments and conveys a tech-intense atmosphere.
