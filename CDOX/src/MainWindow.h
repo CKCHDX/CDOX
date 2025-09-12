@@ -5,6 +5,7 @@
 #include "backend/SystemLogWatcher.h"
 #include "NetworkTopologyWidget.h"
 #include "NetworkScanner.h"
+#include "firewall/FirewallWidget.h"
 class QTabWidget;
 
 class MainWindow : public QMainWindow {
@@ -24,6 +25,7 @@ private:
     QWidget* createAlertsPanel();
 
     void setupTabs();
+    FirewallWidget *firewallWidget = nullptr;
     NetworkScanner *networkScanner = nullptr;
     NetworkTopologyWidget *topologyWidget = nullptr;
     QTabWidget *centerTabWidget = nullptr;
@@ -33,3 +35,4 @@ private:
     QWidget *quickActionsPanel = nullptr;
     QWidget *alertsPanel = nullptr;
 };
+
