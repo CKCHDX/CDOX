@@ -1,0 +1,26 @@
+name: Build CDOX
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: lukka/run-cmake@v10
+      with:
+        cmake-version: '3.21.2'
+        build-type: 'Release'
+
+    - name: Build with CMake
+      run: cmake --build . --config Release
