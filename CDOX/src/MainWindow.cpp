@@ -214,6 +214,9 @@ QWidget* MainWindow::createQuickActionsPanel() {
         "margin-bottom: 10px;"
     );
     layout->addWidget(title);
+    firewallButton = new QPushButton("Firewall", panel);
+    firewallButton->setObjectName("firewallButton");
+    layout->addWidget(firewallButton);
 
     QStringList actions {"Network Sweep", "Host IP Scan", "Cyber Lockdown", "Deploy Firewall", "Virus Scan"};
     for (const QString &action : actions) {
@@ -419,4 +422,5 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         QMainWindow::keyPressEvent(event);
     }
 }
+
 
