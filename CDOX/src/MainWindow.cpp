@@ -360,6 +360,15 @@ void MainWindow::setupTabs() {
     threatText->setReadOnly(true);
     threatText->setText("Threat intelligence data will appear here...");
     threatLayout->addWidget(threatText);
+    
+    connect(firewallButton, &QPushButton::clicked, this, [this]() {
+        if (!firewallWidget) {
+            firewallWidget = new FirewallWidget();
+            centerTabWidget->addTab(firewallWidget, "Firewall");
+        }
+        centerTabWidget->setCurrentWidget(firewallWidget);
+    });
+
 
     centerTabWidget->addTab(threatTab, "Threat Intelligence");
 }
@@ -391,7 +400,7 @@ QWidget* MainWindow::createAlertsPanel() {
         "14:36:01 | DETECTED unusual login from IP 198.51.100.23\n"
         "14:35:55 | Virus signature matched on host 192.168.1.102\n"
         "14:35:50 | Network sweep completed - no anomalies\n"
-        "14:35:10 | User 'agent24' elevated privileges\n"
+        "14:35:10 | User elevated privileges\n"
         "14:34:59 | Firewall rules updated successfully\n"
         "14:34:48 | Suspicious port scanning activity flagged\n"
         "...\n"
@@ -410,3 +419,4 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         QMainWindow::keyPressEvent(event);
     }
 }
+
