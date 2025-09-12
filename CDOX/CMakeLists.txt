@@ -20,6 +20,8 @@ add_executable(cdox
     src/NetworkTopologyWidget.h
     src/NetworkScanner.h
     src/NetworkNodeItem.h
+    src/firewall/FirewallWidget.cpp
+    src/firewall/FirewallWidget.h
 )
 
 add_custom_target(run
@@ -29,3 +31,4 @@ add_custom_target(run
 )
 
 target_link_libraries(cdox PRIVATE Qt6::Widgets Qt6::Network Qt6::Core)
+
