@@ -25,7 +25,7 @@ jobs:
       run: cmake -S CDOX -B release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build release --config Release
+      run: cmake --build release --config Release --verbose
 
     - name: List build directory contents
       run: ls -l release
