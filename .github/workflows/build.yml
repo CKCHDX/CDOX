@@ -14,13 +14,14 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Set up CMake
+    - name: Configure CMake
       uses: lukka/run-cmake@v10
       with:
-        cmake-version: '3.21.2'
-        build-type: 'Release'
+        cmakeListsTxtPath: "CDOX/CMakeLists.txt"
+        workflowPreset: "default"
+        buildPreset: "default"
 
     - name: Build with CMake
-      run: cmake --build . --config Release
+      run: cmake --build build --config Release
