@@ -25,6 +25,7 @@ private:
     QWidget* createAlertsPanel();
 
     void setupTabs();
+    QPushButton *firewallButton = nullptr;
     FirewallWidget *firewallWidget = nullptr;
     NetworkScanner *networkScanner = nullptr;
     NetworkTopologyWidget *topologyWidget = nullptr;
@@ -35,4 +36,5 @@ private:
     QWidget *quickActionsPanel = nullptr;
     QWidget *alertsPanel = nullptr;
 };
+
 
