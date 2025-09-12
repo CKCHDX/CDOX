@@ -6,6 +6,8 @@
 #include "NetworkTopologyWidget.h"
 #include "NetworkScanner.h"
 #include "firewall/FirewallWidget.h"
+#include <QPushButton>
+
 class QTabWidget;
 
 class MainWindow : public QMainWindow {
@@ -36,5 +38,6 @@ private:
     QWidget *quickActionsPanel = nullptr;
     QWidget *alertsPanel = nullptr;
 };
+
 
 
