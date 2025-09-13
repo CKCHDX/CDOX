@@ -125,9 +125,9 @@ forensics-all-gui
 gnupg, gpg-agent
 
 nftables
-apparmor
 apparmor-utils
 libpam-apparmor
 clamav-daemon
 clamav-freshclam
 aide
+
