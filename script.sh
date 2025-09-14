@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKG_FILE="packages.txt"
+PKG_FILE="cdox.txt"
 
 # Check if file exists
 if [[ ! -f "$PKG_FILE" ]]; then
