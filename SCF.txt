@@ -1,0 +1,83 @@
+SECURE CHAT FEATURE - IMPLEMENTATION PLAN
+
+Overview:
+When the user presses the "Start Chat" button in the C++ application:
+1. A local web server starts automatically.
+2. A unique, secure chat link is generated.
+3. The chat interface appears in the program (embedded tab or window).
+4. Friends open the link in their browser to chat securely.
+5. All messages are encrypted end-to-end and transmitted over HTTPS.
+
+Components:
+-----------
+1. C++ Application
+   - UI: Button for starting chat, chat tab for messaging.
+   - Link Generation:
+       * Generate a random, unique URL (e.g., https://<IP-or-domain>/chat/<token>)
+       * Token length: 16-32 alphanumeric characters (securely random)
+   - Start Embedded Web Server:
+       * Libraries: CivetWeb, Boost.Beast, Crow, or Pistache
+       * Serve HTML/JS chat page to browser
+       * Handle incoming HTTP requests
+   - HTTPS Support:
+       * Use OpenSSL for TLS
+       * Optional: self-signed certificate for local use
+       * For public access: Let’s Encrypt + domain
+
+2. Web Chat Interface (HTML + JavaScript)
+   - Loads in browser for external users
+   - Password/Token Authentication
+       * Check link token or user-provided password before enabling chat
+   - Chat UI
+       * Input box + message area
+       * Encrypted messages only (client-side encryption)
+   - End-to-End Encryption:
+       * Use libsodium.js or Signal Protocol JS
+       * Encrypt messages in browser before sending
+       * Decrypt messages on C++ client (embedded chat tab)
+       * Server acts as a relay only; cannot read messages
+
+3. Message Transmission
+   - Protocol: WebSockets or HTTP long-polling
+   - Flow:
+       * Browser encrypts message → send to server
+       * Server forwards encrypted message → C++ chat tab
+       * C++ decrypts message using private key
+   - Reverse for messages sent from C++ client
+
+4. Security Considerations
+   - Use HTTPS at all times
+   - Use strong random tokens for links
+   - Optionally implement token expiry for one-time chats
+   - Properly handle network errors and encryption keys
+   - Validate all inputs on server side
+
+Workflow:
+--------
+1. User presses "Start Chat"
+2. C++ app:
+   - Generates link and token
+   - Starts local web server
+   - Opens embedded chat tab for the user
+3. User shares the generated link with friend
+4. Friend opens link in browser:
+   - Browser connects via HTTPS
+   - Authenticates with token/password
+   - Chat interface appears
+5. All messages are encrypted end-to-end:
+   - Browser encrypts → sends to server → server relays → C++ client decrypts
+   - C++ client encrypts → sends to server → server relays → browser decrypts
+
+Optional Enhancements:
+----------------------
+- Add chat logging (encrypted locally)
+- Support multiple concurrent users (each with unique token)
+- Auto-expiry of links after chat ends
+- Notification system for incoming messages
+
+Notes:
+------
+- Avoid storing plaintext messages on server
+- Ensure proper handling of encryption keys in C++ app
+- Test on both local network and external network (requires port forwarding or ngrok for testing)
+- Consider using a lightweight web framework for faster implementation
